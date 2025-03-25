@@ -12,6 +12,7 @@ const pool = mariadb.createPool({
 });
 
 app.post('/create_event', authMiddleware, async(req,res)=>{
-  const{eventName, location, time, budget }
+  const{eventName, location, time, budget } = req.body;
+  
     
 })

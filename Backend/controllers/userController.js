@@ -1,8 +1,8 @@
-const mariadb = require('mariadb');
-const jwt = require('jsonwebtoken');
+import { createPool } from 'mariadb';
+import { sign } from 'jsonwebtoken';
 require('dotenv').config();
 
-const pool = mariadb.createPool({
+const pool = createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -22,7 +22,7 @@ app.post("/register", async(req,res)=>{
     await connection.query(query,[username,email,hashedPassword,role]);
     connection.release;
 
-    const webToken = jwt.sign({username,email,password,role},process.env.JWT_SECRET,{expiresIn:'1h'});
+    const webToken = sign({username,email,password,role},process.env.JWT_SECRET,{expiresIn:'1h'});
     res.status(201).json({message:'user created successfully',webToken});
   }catch(error){
     console.error('Error creating a user',error);
@@ -49,7 +49,7 @@ app.post("/login",async(req,res)=>{
     if(!passwordValidity){
       return res.status(401).json({error:"Invalid username or password"});
     }
-    const webToken = jwt.sign(
+    const webToken = sign(
       {username: user.username, role: user.role },
       process.env.JWT_SECRET,{expiresIn:'1h'});
     res.status(200).json({
@@ -65,4 +65,8 @@ app.post("/login",async(req,res)=>{
     console.error('error loggin in',error);
     res.status(500).json({error:'error loggin in'});
   }
+})
+
+app.get("/dashboard", async(req,res)=>{
+  
 })

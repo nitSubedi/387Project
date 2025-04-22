@@ -1,0 +1,52 @@
+.dashboard-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .dashboard-container h2 {
+    color: #3494e6;
+    margin-bottom: 10px;
+  }
+  
+  .user-role {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 30px;
+  }
+  
+  .admin-panel, .user-panel {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02);
+  }
+  
+  .admin-panel h3, .user-panel h3 {
+    margin-bottom: 15px;
+    color: #ec6ead;
+  }
+  
+  .admin-panel ul, .user-panel ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .admin-panel li, .user-panel li {
+    margin-bottom: 10px;
+  }
+  
+  .admin-panel a, .user-panel a {
+    text-decoration: none;
+    color: #3494e6;
+    font-weight: 500;
+  }
+  
+  .admin-panel a:hover, .user-panel a:hover {
+    text-decoration: underline;
+  }
+  
